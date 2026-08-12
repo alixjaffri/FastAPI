@@ -1,11 +1,11 @@
-from fastapi import APIRouters, Depends
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.services.article import ArticleService
 from app.schemas.articles import ArticleCreate, ArticleUpdate, ArticleRead
 from app.database import get_db
 from app.deps import get_current_user
 
-router = APIRouters(prefix = "/articles", tags = ["articles"])
+router = APIRouter(prefix = "/articles", tags = ["articles"])
 service = ArticleService
 
 @router.post("/", response_model = ArticleRead)
@@ -18,7 +18,7 @@ def get_article(article_id: int, db: Session = Depends(get_db)):
     return service.get_article(article_id, db)
 
 
-@router.get("/", response_model = list(ArticleRead))
+@router.get("/", response_model = list[ArticleRead])
 def get_all_article(db: Session = Depends(get_db)):
     return service.get_all_articles(db)
 
