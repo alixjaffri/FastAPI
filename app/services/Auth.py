@@ -1,10 +1,10 @@
 from sqlalchemy.orm import Session
-from models.users import User
-from schemas.users import UserCreate
-from repository.user import UserRepository
+from app.models.users import User
+from app.schemas.users import UserCreate
+from app.repository.user import UserRepository
 from fastapi import HTTPException
-from security import hash_pwd, verify_pwd
-from utils.auth import create_token
+from app.security import hash_pwd, verify_pwd
+from app.utils.auth import create_token
 
 class AuthService:
 

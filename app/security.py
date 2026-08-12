@@ -1,6 +1,6 @@
-from passlib import CryptContext
+from passlib.context import CryptContext
 
-pwd = CryptContext(schemas = "bcrypt", deprecated = "auto")
+pwd = CryptContext(schemes = "bcrypt", deprecated = "auto")
 
 def hash_pwd(p: str):
     return pwd.hash(p)

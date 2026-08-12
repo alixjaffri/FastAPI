@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from models.users import User
-from schemas.users import UserCreate
+from app.models.users import User
+from app.schemas.users import UserCreate
 from typing import Optional
 
 class UserRepository:
